@@ -1,22 +1,27 @@
+{% load staticfiles %}
 <html>
     <head>
     	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
         <title>Django Girls blog</title>
     </head>
     <body>
 	<a href="{% url 'blog.views.post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-       <div>
+       <div class="page-header">
     <h1><a href="/">Django Girls Blog</a></h1>
 	</div>
 
 {% for post in posts %}
-    <div>
+    <div class="post">
         <p>published: {{ post.published_date }}</p>
         <h1><a href="">{{ post.title }}</a></h1>
         <p>{{ post.text|upper }}</p>
     </div>
 {% endfor %}
-
+<div>
+    <a href="http://en.wikipedia.org/wiki/Django" class="external_link" id="link_to_wiki_page">WIKI</a>
+    </div>
     </body>
 </html>
